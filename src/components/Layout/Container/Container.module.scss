@@ -1,0 +1,23 @@
+@import 'styles/utils/index';
+
+.base {
+  width: 100%;
+  position: relative;
+}
+
+/* Presets: */
+.default {
+  @include vw-container($lg);
+}
+
+.narrow {
+  @include vw-container($md);
+}
+
+.bracket-all {
+  @include vw-container($lg, $xs);
+}
+
+.full {
+  background-size: cover;
+}

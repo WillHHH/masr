@@ -1,0 +1,20 @@
+@import "styles/utils/index";
+
+.base {
+  display: block;
+  cursor: pointer;
+}
+.topX {
+  transition: transform $interaction-shift;
+  transform-origin: center;
+  &.active {
+    transform: rotate(46deg) translateY(3.5px);
+  }
+}
+.bottomX {
+  transition: transform $interaction-shift;
+  transform-origin: center;
+  &.active {
+    transform: rotate(-43deg) translateY(-4.55px);
+  }
+}

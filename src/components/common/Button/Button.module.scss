@@ -1,0 +1,107 @@
+@import "styles/utils/index";
+
+.base {
+  background-color: transparent;
+}
+
+.children {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 13px 18px;
+  background-color: $blue;
+  border-radius: 100px;
+  cursor: pointer;
+
+  span {
+    @include buttons(true);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    @include svg-color($white);
+  }
+}
+
+.ghost {
+  @include ghost-button;
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+
+  span {
+    @include type-scale(20px);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    @include svg-color($base-font-color);
+  }
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  flex-direction: row-reverse;
+  margin-bottom: 20px;
+  cursor: pointer;
+  span {
+    font-size: 14px;
+    line-height: 20px;
+    color: #2d5453;
+    margin-left: 10px;
+    text-transform: capitalize;
+  }
+  svg {
+    position: relative;
+    top: -1px;
+  }
+}
+
+.box {
+  border: 2px solid #2d5453;
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 13px 48px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: 1px 1px 0px #2d5453;
+  transition: all 0.3s;
+
+  svg {
+    display: none;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    transition: all 0.3s;
+    background-color: rgba(#39383d1f, 0.12);
+  }
+}
+.dark {
+  color: $white;
+  border-color: $white;
+  box-shadow: 1px 1px 0px $white;
+
+  &:hover,
+  &:active,
+  &:focus {
+    transition: all 0.3s;
+    background-color: rgba(#fff, 0.12);
+  }
+}

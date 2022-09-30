@@ -1,0 +1,101 @@
+@import "styles/utils/index";
+
+.base {
+  position: relative;
+  margin-left: 17px;
+  width: 120px;
+  @include media($max-md) {
+    max-width: 150px;
+    margin-top: 90px;
+    margin-left: 55px;
+  }
+}
+.selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid #fff;
+  padding: 2px 8px;
+  min-width: 100px;
+  transition: background-color $interaction-shift;
+  box-shadow: 1px 1px 0px #fff;
+  background-color: rgba(255, 255, 255, 0);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .lang {
+    color: #fff;
+  }
+}
+.icon {
+  height: 16px;
+  width: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(0deg);
+  transition: all 0.3s;
+  margin-left: 10px;
+  svg {
+    zoom: 0.5;
+    path {
+      fill: #fff;
+    }
+  }
+}
+.langOptions {
+  background-color: $black;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  top: 36px;
+  right: 0px;
+  z-index: 10;
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  max-height: 0;
+  text-align: right;
+  width: 120px;
+}
+.lang {
+  color: #1f0e09;
+  font-size: 12px;
+  line-height: 30px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #fff;
+}
+.option {
+  width: 100%;
+  color: $white;
+  text-align: left;
+  padding: 0 10px;
+  &:hover {
+    color: #fff;
+    background: #1f0e09;
+  }
+  &.disabled {
+    opacity: 0.2;
+    &:hover {
+      color: $dark;
+      background: inherit;
+    }
+  }
+}
+.active {
+  .langOptions {
+    max-height: 200px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-out;
+    transform: translateY(0px);
+  }
+  .icon {
+    transform: rotate(180deg);
+    transition: all 0.3s;
+  }
+}

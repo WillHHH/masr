@@ -1,0 +1,46 @@
+@import "styles/utils/index";
+
+.base {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include media ($max-md) {
+    display: block;
+  }
+}
+@include media($max-md) {
+  .href {
+    display: block;
+    @include vw-container();
+    padding-top: 16px;
+  }
+}
+.link {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  margin: 0 17px;
+  height: 65px;
+  font-size: 12px;
+  line-height: 24px;
+  font-family: $base-font-family;
+  font-weight: 400;
+  border-bottom: 2px solid rgba($white, 0);
+  &:hover, &:focus, &:active {
+    color: $white;
+    border-bottom: 2px solid $white;
+  }
+  &.active {
+    border-bottom-color: $white;
+    font-family: $secondary-font-family;
+    font-style: italic;
+  }
+  @include media($max-md) {
+    display: block;
+    font-size: 35px;
+    line-height: 70px;
+    border: none;
+  }
+}

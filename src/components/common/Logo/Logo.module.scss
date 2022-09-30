@@ -1,0 +1,9 @@
+@import "styles/utils/index";
+
+.base {
+  display: block;
+  cursor: pointer;
+  transition: width $interaction-shift, height $interaction-shift;
+  object-fit: contain;
+  margin-bottom: -10px;
+}

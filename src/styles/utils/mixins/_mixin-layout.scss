@@ -1,0 +1,263 @@
+// ------------------------------------------------------------
+//   Layout Related Mixins
+// ------------------------------------------------------------
+
+// Absolute Centering & Framing:
+@use "sass:math";
+
+@mixin centerX() {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin centerY() {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin centerXY() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin trbl($top: 0, $right: $top, $bottom: $top, $left: $right) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// ----------------------------------------------
+//   VW-CONTAINER API
+//   $max-bp: Specifies the maximum screen size
+//            at which to STOP expanding entirely
+//   $bracket-bp: Specifies the minimum screen size
+//            at which to start "holding" width
+// -----------------------------------------------
+
+@mixin constrain($breakpoint) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $breakpoint;
+}
+
+@mixin vw-container($max-bp: $lg, $bracket-bp: $max-bp) {
+  @if ($bracket-bp > $max-bp) {
+    @error "vw-container: $bracket-bp must be smaller than $max-bp";
+  }
+
+  width: 100%;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  @if $max-bp >= $xs and $bracket-bp <= $xs {
+    @include media($min-xs) {
+      @include constrain($screen-xs);
+    }
+  }
+
+  @if $max-bp >= $sm and $bracket-bp <= $sm {
+    @include media($min-sm) {
+      @include constrain($screen-sm);
+    }
+  }
+
+  @if $max-bp >= $md and $bracket-bp <= $md {
+    @include media($min-md) {
+      @include constrain($screen-md);
+    }
+  }
+
+  @if $max-bp >= $lg and $bracket-bp <= $lg {
+    @include media($min-lg) {
+      @include constrain($screen-lg);
+    }
+  }
+
+  @if $max-bp >= $xlg and $bracket-bp <= $xlg {
+    @include media($min-xlg) {
+      @include constrain($screen-xlg);
+    }
+  }
+}
+
+// Collapses Tables on browser widths smaller than 480px
+@mixin table-mobile-collapse($collapse-btn-color, $collapse-btn-bg) {
+  .collapse-table {
+    display: none;
+  }
+  table {
+    @include media($max-xs) {
+      position: relative;
+      &:before {
+        content: "Tap to open table";
+        position: absolute;
+        z-index: 2;
+        @include centerXY();
+        width: 100%;
+        color: white;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        cursor: pointer;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+      }
+
+      th,
+      td {
+        height: 7px;
+        font-size: 0;
+      }
+    }
+  }
+
+  &.mobile-table-open {
+    @include media($max-xs) {
+      .collapse-table {
+        display: block;
+        width: 70%;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $collapse-btn-color;
+        padding: 10px 15px;
+        margin: 0 auto;
+        background: $collapse-btn-bg;
+        cursor: pointer;
+      }
+
+      table {
+        margin-top: 0;
+        &:before,
+        &:after {
+          display: none;
+        }
+
+        th,
+        td {
+          height: auto;
+          font-size: inherit;
+        }
+      }
+    }
+  }
+}
+
+// Flex Vertical Centering
+@mixin flex-vertical-center($justify-content) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify-content;
+  align-items: center;
+}
+
+// Clearfix
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@mixin flex-container(
+  $flex-direction: row,
+  $justify-content: flex-start,
+  $align-items: stretch,
+  $align-content: stretch
+) {
+  @include display(flex);
+  @include flex-direction($flex-direction);
+  @include justify-content($justify-content);
+  @include align-items($align-items);
+  @include align-content($align-content);
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: math.div($height, $width) * 100%;
+  }
+
+  > * {
+    position: absolute;
+  }
+}
+
+@mixin wallpaper() {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin poster($width, $height) {
+  @include wallpaper();
+  @include aspect-ratio($width, $height);
+}
+
+// Responsive Videos
+@mixin video-container() {
+  position: relative;
+  height: 0;
+  padding: 0 0 56.25% 0;
+  margin: 0 0 20px 0;
+  overflow: hidden;
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin grid($columns: 3, $gutter: $grid-padding, $justify: flex-start) {
+  margin-left: -$gutter * 0.5;
+  margin-right: -$gutter * 0.5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $justify;
+
+  > * {
+    @include grid-item($columns, $gutter);
+  }
+}
+
+@mixin grid-item($columns: 3, $gutter: $grid-padding) {
+  margin: 0 $gutter * 0.5 $gutter;
+  width: calc(#{math.div(100%, $columns)} - #{$gutter});
+}
+
+@mixin grid-item-override($columns: 3, $gutter: $grid-padding) {
+  margin: 0 $gutter * 0.5 $gutter;
+  width: calc(#{math.div(100%, $columns)} - #{$gutter}) !important;
+}
+
+@mixin section-padding {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}

@@ -1,0 +1,59 @@
+@import "styles/utils/index";
+
+.base {
+  position: relative;
+  background: $purple-2;
+  color: white;
+
+  padding: 32px 0;
+
+  @include media( $min-md ) {
+    padding: 64px 0;
+  }
+}
+
+.row {
+  @include media($max-md) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  @include media($min-md) {
+    @include grid(2, 0px);
+    align-items: center;
+  }
+}
+
+.column {
+  @include media($min-md) {
+    flex-grow: 1;
+  }
+}
+
+.logoColumn {
+  @include media($min-md) {
+    padding-right: 32px;
+  }
+
+  @include media($min-xlg) {
+    padding-right: 64px;
+  }
+}
+
+.contentColumn {
+  padding: 32px 0;
+
+  h2 {
+    @include normal-section-title;
+    color: white;
+    margin: 0 0 16px;
+  }
+
+  @include media($min-md) {
+    padding-left: 32px;
+  }
+
+  @include media($min-xlg) {
+    padding-left: 64px;
+  }
+}

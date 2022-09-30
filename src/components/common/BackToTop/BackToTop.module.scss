@@ -1,0 +1,22 @@
+@import "styles/utils/index";
+
+.base {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	width: 31px;
+	height: 31px;
+	border-radius: 10px;
+	border: 2px solid $blue;
+}
+
+.icon {
+	height: 20px;
+	svg {
+		zoom: 0.6;
+		path {
+			fill: $blue;
+		}
+	}
+}

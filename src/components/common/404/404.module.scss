@@ -1,0 +1,12 @@
+@import "styles/utils/index";
+
+.base {
+  border-top: solid 121px $purple-2;
+  margin-top: -121px;
+  padding: 32px 0 128px;
+
+  a {
+    display: block;
+    margin-top: 32px;
+  }
+}

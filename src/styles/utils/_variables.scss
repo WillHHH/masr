@@ -1,0 +1,99 @@
+// -----------------------------------------------
+//    Variables
+// -----------------------------------------------
+
+// Colors:
+// Should be assigned to "roles", NEVER used directly.
+$red: #a91818;
+$red-dark: #690f0f;
+$blue: #3a86ff;
+$green: #14a214;
+$black: #39383d;
+$dark: #200202;
+$white: #ffffff;
+$gray: #d9d9d9;
+$gray-medium: #878787;
+$green-cheese: #47f4cf;
+
+$purple-1: #210b31;
+$purple-2: #381551;
+$purple-3: #6644bf;
+$purple-4: #b39bee;
+$purple-5: #ece3f3;
+
+$green-1: #001313;
+$green-2: #071a1c;
+$green-3: #2d5453;
+$green-4: #afd8d8;
+$green-5: #e5f3f4;
+
+$brown-1: #1f0e09;
+$brown-2: #441f16;
+$brown-3: #9a694d;
+$brown-4: #e0b387;
+$brown-5: #f7eadf;
+
+$gray-1: #39383d;
+$gray-2: #65696b;
+$gray-3: #8d9195;
+$gray-4: #f1f1f1;
+$gray-5: rgba(57, 56, 61, 0.12);
+
+$bright-green: #84ae73;
+$bright-yellow: #eca545;
+$bright-purple: #636dcc;
+$bright-pink: #e39594;
+$bright-red: #cf5f56;
+
+// Color Roles:
+// Roles can change more easily than named colors.
+$accent-primary: $black;
+$accent-secondary: $blue;
+$base-border-color: $gray;
+$base-font-color: $black;
+$base-link-color: $accent-secondary;
+$base-link-hover-color: $accent-primary;
+$base-form-highlight: $red;
+$base-form-color: $black;
+
+$background-color: white;
+$foreground-color: #9aa3be;
+
+// Fonts:
+$em-base: 16px;
+
+$base-font-family: "FKGroteskNeue", sans-serif;
+$base-font-size: em(16);
+$base-line-height: 1.5;
+
+$secondary-font-family: "BwBeto", sans-serif;
+$secondary-font-size: em(16);
+$secondary-line-height: 1.5;
+
+$heading-font-family: "FKGroteskNeue", sans-serif;
+$heading-font-size: em(16);
+$heading-line-height: 1.5;
+
+// Measurements:
+$padding: 16px;
+$container-padding: 32px;
+$grid-padding: $container-padding;
+
+$header-height: 120px;
+$header-height-lg: 150px;
+$sidebar-width: 400px;
+$sidebar-width-lg: 500px;
+$sidebar-width-xlg: 600px;
+
+// Depths:
+$background: 1000;
+$middleground: 2000;
+$foreground: 3000;
+
+// Animation Styles:
+$interaction-shift: 222ms ease-out;
+$layout-shift: 333ms ease-out;
+$overlay-shift: 456ms ease-out;
+
+// Portfolio styles
+$grey-dark: #333;

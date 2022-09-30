@@ -1,0 +1,130 @@
+@import "styles/utils/index";
+
+.base {
+  background-color: #031112;
+  background-image: url(/images/footer-bg.jpg);
+  background-attachment: fixed;
+  background-position: center bottom;
+  background-size: cover;
+  padding: 57px 0 40px 0;
+  color: $white;
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    a,
+    div {
+      color: $white;
+      margin-right: 44px;
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid $white;
+    @include media($max-md) {
+      flex-direction: column;
+      border: none;
+    }
+    .left {
+      flex: 1;
+      img {
+        // max-width: 150px;
+        // margin-left: -15px;
+      }
+      ul {
+        margin-top: 0;
+        @include media($max-md) {
+          display: block;
+          border-bottom: 0.5px solid #ffffff;
+          padding-bottom: 30px;
+          margin-bottom: 10px;
+          li {
+            display: inline-block;
+            a {
+              font-size: 18px;
+              line-height: 50px;
+            }
+          }
+        }
+      }
+    }
+    .right {
+      color: $white;
+    }
+  }
+  .bottom {
+    color: $white;
+    padding-top: 16px;
+    display: flex;
+    @include media($max-md) {
+      display: flex;
+      justify-content: space-between;
+      justify-content: space-between;
+
+      ul {
+        display: block;
+        margin-top: 10px;
+      }
+      .right {
+        a {
+          margin-right: 20px;
+        }
+      }
+    }
+    @include media($min-md) {
+      .bottomInfo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .left {
+        ul {
+          li {
+            div {
+              margin-right: 0;
+            }
+            a {
+              border-left: 1px solid $white;
+              padding-left: 16px;
+              margin-left: 16px;
+              margin-right: 0;
+            }
+          }
+        }
+
+        &.arLeft {
+          a {
+            border-left: none;
+            border-right: 1px solid $white;
+            margin: 0;
+            padding: 0;
+            padding-right: 16px;
+            margin-right: 16px;
+          }
+        }
+      }
+      .right {
+        a {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+  .desktop {
+    @include media($max-md) {
+      display: none;
+    }
+  }
+  .mobile {
+    @include media($min-md) {
+      display: none;
+    }
+  }
+}

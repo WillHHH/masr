@@ -1,0 +1,40 @@
+@import "styles/utils/index";
+
+.base {
+  position: relative;
+  &.greenBackround {
+    background: $green-3;
+  }
+
+  hr {
+    height: 0.5px;
+  }
+}
+
+.mode-light hr {
+  background: $green-3;
+}
+
+.mode-dark hr {
+  background: white;
+}
+
+.hiddenLine hr {
+  background: transparent;
+}
+
+.spacing-none hr {
+  margin: 0;
+}
+
+.spacing-small hr {
+  margin: 16px 0;
+}
+
+.spacing-medium hr {
+  margin: 32px 0;
+}
+
+.spacing-large hr {
+  margin: 64px 0;
+}

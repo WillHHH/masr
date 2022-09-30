@@ -1,0 +1,167 @@
+// FK Grotesk Neue
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('/fonts/FKGroteskNeue/woff2/FKGroteskNeue-Light.woff2') format('woff2'),
+       url('/fonts/FKGroteskNeue/woff/FKGroteskNeue-Light.woff') format('woff');
+       font-weight: 300;
+}
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('/fonts/FKGroteskNeue/woff2/FKGroteskNeue-LightItalic.woff2') format('woff2'),
+       url('/fonts/FKGroteskNeue/woff/FKGroteskNeue-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('/fonts/FKGroteskNeue/woff2/FKGroteskNeue-Regular.woff2') format('woff2'),
+       url('/fonts/FKGroteskNeue/woff/FKGroteskNeue-Regular.woff') format('woff');
+       font-weight: 400;
+}
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('/fonts/FKGroteskNeue/woff2/FKGroteskNeue-Italic.woff2') format('woff2'),
+       url('/fonts/FKGroteskNeue/woff/FKGroteskNeue-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('/fonts/FKGroteskNeue/woff2/FKGroteskNeue-Bold.woff2') format('woff2'),
+       url('/fonts/FKGroteskNeue/woff/FKGroteskNeue-Bold.woff') format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('/fonts/FKGroteskNeue/woff2/FKGroteskNeue-BoldItalic.woff2') format('woff2'),
+       url('/fonts/FKGroteskNeue/woff/FKGroteskNeue-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+// Bw Beto
+@font-face {
+  font-family: "BwBeto";
+  src: url('/fonts/BetoGrande/BwBetoGrande-Light.woff2') format('woff2'),
+       url('/fonts/BetoGrande/BwBetoGrande-Light.woff') format('woff');
+  font-weight: 300;
+}
+@font-face {
+  font-family: "BwBeto";
+  src: url('/fonts/BetoGrande/BwBetoGrande-LightItalic.woff2') format('woff2'),
+       url('/fonts/BetoGrande/BwBetoGrande-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "BwBeto";
+  src: url('/fonts/BetoGrande/BwBetoGrande-Regular.woff2') format('woff2'),
+       url('/fonts/BetoGrande/BwBetoGrande-Regular.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: "BwBeto";
+  src: url('/fonts/BetoGrande/BwBetoGrande-RegularItalic.woff2') format('woff2'),
+       url('/fonts/BetoGrande/BwBetoGrande-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+// -----------------------------------------------
+//    Typography
+// -----------------------------------------------
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-size: 100%;
+  line-height:$base-line-height;
+  font-weight: 400;
+  color: $base-font-color;
+  font-family: $base-font-family;
+}
+
+a {
+  color:$base-link-color;
+  transition:all 0.3s ease-out;
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    color:$base-link-hover-color;
+  }
+}
+
+
+// ------------------------------------------------------------
+//   Filling in H1-H6 default styling will prep the CMS editor
+// ------------------------------------------------------------
+.heading {
+  font-family: $heading-font-family;
+
+  h1 {
+    font-weight: 800;
+    @include leading-scale(1.2, 1.2, 1.2);
+  }
+}
+
+h1 {
+  // Example Use of Type/Leading Scale for Desktop/Mobile/Tablet (in that order)
+  @include type-scale(42, 32, 42);
+  @include leading-scale(1.2, 1.4, 1.5);
+  font-weight: 200;
+}
+
+h2 {
+  @include type-scale(28, 22, 24);
+  @include leading-scale(1.2, 1.4, 1.5);
+  font-weight: 200;
+}
+
+h3 {
+  @include type-scale(22, 20, 22);
+  @include leading-scale(1.2, 1.4, 1.5);
+  font-weight: 200;
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+  padding-bottom:15px;
+  margin:0;
+}
+
+// Leave Lists blank if no custom styling is needed for default.
+ul {
+}
+ol {
+}
+
+blockquote {
+  border-left:5px solid $base-border-color;
+  margin:20px 0;
+  padding-left: 15px;
+}
+
+// Only display content to screen readers
+// See: http://a11yproject.com/posts/how-to-hide-content/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
