@@ -1,0 +1,13 @@
+@import "styles/utils/index";
+
+.base {
+  position: fixed;
+  z-index: $foreground;
+  @include trbl;
+  width: 100%;
+  height: 100vh;
+  background: $purple-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

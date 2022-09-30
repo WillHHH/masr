@@ -1,0 +1,24 @@
+@import "styles/utils/index";
+
+.base {
+  position: relative;
+
+  @include grid( 1 );
+
+  @include media( $min-sm ) {
+    @include grid( 2 );
+  }
+
+  @include media( $min-md ) {
+    @include grid( 3, 64px );
+  }
+
+  @include media( $min-lg ) {
+    @include grid( 4, 72px );
+  }
+}
+
+.guide {
+  border: 1px dashed white;
+  height: 300px;
+}

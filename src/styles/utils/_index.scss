@@ -1,0 +1,12 @@
+// Import variables and mixins
+// This file will be imported by component stylesheets so they have
+// access to global variables and all the mixins.
+
+@import 'variables';
+@import 'mixins/mixin-typography';
+@import 'mixins/mixin-media';
+@import 'mixins/mixin-layout';
+@import 'mixins/mixin-forms';
+@import 'mixins/mixin-buttons';
+@import 'mixins/mixin-misc';
+@import 'mixins/mixin-text-styles';

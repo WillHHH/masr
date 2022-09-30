@@ -1,0 +1,5 @@
+User-agent: *
+Sitemap: https://fgs-global-staging.vercel.app/sitemap.xml
+Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://fgsglobal.com/sitemap.xml
+Allow: /

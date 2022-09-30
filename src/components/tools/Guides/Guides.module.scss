@@ -1,0 +1,54 @@
+@import "styles/utils/index";
+
+$border-style: 1px dashed gray;
+
+.base {
+  mix-blend-mode: difference;
+  pointer-events: none;
+
+  position: fixed;
+  @include trbl;
+  width: 100%;
+  height: 100vh;
+
+  > label {
+    @include media( $max-md ) {
+      display: none;
+    }
+  }
+}
+
+.base label {
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  color: gray;
+  @include font-size( 10px );
+  transform: rotate(90deg);
+  transform-origin: bottom left;
+}
+
+.containerPaddingGuide {
+  position: relative;
+  border-left: $border-style;
+  border-right: $border-style;
+  height: 100vh;
+
+  &:before,
+  &:after {
+    content: "";
+    width: 0;
+    top: 0;
+    height: 100vh;
+    border-left: $border-style;
+    position: absolute;
+  }
+
+  &:before {
+    left: -#{$container-padding};
+  }
+
+  &:after {
+    right: -#{$container-padding};
+  }
+}

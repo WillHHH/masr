@@ -1,0 +1,181 @@
+@mixin home-page-main($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(100px, 60px);
+  @include leading-scale(90px, 66px);
+  font-weight: 400;
+  font-family: $heading-font-family;
+  i {
+    font-family: $secondary-font-family;
+  }
+}
+
+@mixin interior-page-title($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(40px, 40px);
+  @include leading-scale(51.2px, 51.2px);
+  font-weight: 500;
+  font-family: $base-font-family;
+  text-transform: uppercase;
+}
+
+@mixin section-divider($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(45px, 45px);
+  @include leading-scale(55px, 55px);
+  font-weight: 300;
+  font-family: $base-font-family;
+}
+
+@mixin big-section-title($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(100px, 100px);
+  @include leading-scale(100px, 100px);
+  font-weight: 400;
+  font-family: $base-font-family;
+  i {
+    font-family: $secondary-font-family;
+  }
+}
+
+@mixin big-section-title-italic($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(100px, 100px);
+  @include leading-scale(100px, 100px);
+  font-weight: 400;
+  font-family: $secondary-font-family;
+}
+
+@mixin normal-section-title($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(32px, 32px);
+  @include leading-scale(38px, 38px);
+  font-weight: 300;
+  font-family: $base-font-family;
+  i {
+    font-family: $secondary-font-family;
+  }
+}
+
+@mixin small-section-title() {
+  @include type-scale(24px);
+  @include leading-scale(36px);
+  font-weight: 300;
+  font-family: $secondary-font-family;
+  font-style: italic;
+}
+
+@mixin normal-section-subtitle($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(18px, 18px);
+  @include leading-scale(24px, 24px);
+  font-weight: 400;
+  font-family: $secondary-font-family;
+  font-style: italic;
+}
+
+@mixin paragraph($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(16px);
+  @include leading-scale(22px);
+  font-weight: 300;
+  font-family: $base-font-family;
+}
+
+@mixin buttons($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(14px, 14px);
+  @include leading-scale(24px, 24px);
+  font-weight: 400;
+  font-family: $base-font-family;
+  text-transform: uppercase;
+}
+
+@mixin breadcrumbs($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(14px, 14px);
+  @include leading-scale(24px, 24px);
+  font-weight: 200;
+  font-family: $base-font-family;
+}
+
+@mixin article-title($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(18px, 18px);
+  @include leading-scale(22px, 22px);
+  font-weight: 400;
+  font-family: $base-font-family;
+}
+
+@mixin article-date-and-category($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(12px, 12px);
+  @include leading-scale(18px, 18px);
+  font-weight: 300;
+  font-family: $base-font-family;
+}
+
+@mixin subtitles($dark-mode: false) {
+  color: if($dark-mode, $white, $gray-medium);
+  @include type-scale(20px, 20px);
+  @include leading-scale(22px, 22px);
+  font-weight: 700;
+  font-family: $heading-font-family;
+  text-transform: uppercase;
+}
+
+@mixin subtitles2($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(20px, 20px);
+  @include leading-scale(24px, 24px);
+  font-weight: 300;
+  font-family: $base-font-family;
+  position: relative;
+  padding-left: 22px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 22px;
+    background-color: $black;
+  }
+}
+
+@mixin bullets($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(16px, 16px);
+  @include leading-scale(20px, 20px);
+  font-weight: 300;
+  font-family: $heading-font-family;
+  position: relative;
+  padding-left: 22px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 22px;
+    background-color: $black;
+  }
+}
+
+@mixin bio-name($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(20px, 20px);
+  @include leading-scale(24px, 24px);
+  font-weight: 400;
+  font-family: $base-font-family;
+}
+
+@mixin bio-title($dark-mode: false) {
+  color: if($dark-mode, $white, $black);
+  @include type-scale(16px, 16x);
+  @include leading-scale(18px, 18px);
+  font-weight: 400;
+  font-family: $secondary-font-family;
+  font-style: italic;
+}
