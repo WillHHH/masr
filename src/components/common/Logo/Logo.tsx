@@ -17,7 +17,7 @@ const Logo: FC<LogoProps> = ({ className, onCloseMenu }) => {
         <img
           className={cx(styles.base, className)}
           src="/images/logo@2x.png"
-          srcSet="/images/logo.png 1x, /images/logo@2x.png 2x, /images/logo@3x.png 3x"
+          // srcSet="/images/logo.png 1x, /images/logo@2x.png 2x, /images/logo@3x.png 3x"
           width="250"
           height="115"
           alt="MASR LOGO"

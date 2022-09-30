@@ -118,8 +118,7 @@ const Header = ({ className, story, contentLocales }: HeaderProps) => {
                 </LinkWrap>
               </div>
             </div>
-            <div className={styles.right}>
-            </div>
+            <div className={styles.right}></div>
           </div>
         </div>
         <div className={styles.menuWrap}>

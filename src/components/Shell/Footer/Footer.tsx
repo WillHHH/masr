@@ -23,6 +23,25 @@ const Footer = ({ className, story }: FooterProps) => {
   const [, scrollProgress] = useScrollOffset();
   const bgOffset = -Math.round((scrollProgress / 4) * 200) + 50;
 
+  const mockedRoutes = [
+    {
+      label: "Home",
+      href: "/#home",
+    },
+    {
+      label: "Services",
+      href: "/#services",
+    },
+    {
+      label: "What We Do",
+      href: "/#what-we-do",
+    },
+    {
+      label: "Contact Us",
+      href: "/#contact-us",
+    },
+  ];
+
   return (
     <footer
       className={cx(styles.base, className)}
@@ -36,9 +55,9 @@ const Footer = ({ className, story }: FooterProps) => {
             <Logo />
             {/* <img src="/images/footer-logo.svg" alt="FGS Global" /> */}
             <ul>
-              {routes?.map((route) => (
-                <li key={route._uid}>
-                  <LinkWrap href={route.href?.cached_url}>
+              {mockedRoutes?.map((route) => (
+                <li key={route.label}>
+                  <LinkWrap href={route.href}>
                     {route.label}
                   </LinkWrap>
                 </li>
