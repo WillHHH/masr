@@ -53,11 +53,8 @@ const Meta = ({ router, story }: MetaProps) => {
     title += ` - ${renderTitle()}`;
   }
 
-  const description =
-    seo?.description?.replace?.(/\n+/g, " ") || "Our insights. Your impact.";
-  const image =
-    seo?.og_image ||
-    "https://a.storyblok.com/f/137553/1200x600/3b10646d98/fgs-global-card.jpg";
+  const description = seo?.description?.replace?.(/\n+/g, " ");
+  const image = seo?.og_image;
 
   const og_title = seo?.og_title || title;
   const og_description = seo?.og_description || description;
@@ -71,7 +68,7 @@ const Meta = ({ router, story }: MetaProps) => {
       <link rel="canonical" href={siteUrl} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={siteUrl} />
-      {/* {!!title && (
+      {!!title && (
         <>
           <title>{title}</title>
           <meta property="og:title" content={og_title} />
@@ -94,7 +91,7 @@ const Meta = ({ router, story }: MetaProps) => {
             key="og_image_secure"
           />
         </>
-      )} */}
+      )}
       {!!twitter_image && (
         <>
           <meta
