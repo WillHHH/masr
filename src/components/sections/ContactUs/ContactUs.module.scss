@@ -1,8 +1,10 @@
 @import "styles/utils/index";
 
+.outer {
+	background-color: $white;
+}
 .base {
 	background-color: $white;
-
 	padding-top: 60px;
 	padding-bottom: 60px;
 	display: flex;
@@ -14,7 +16,6 @@
 		padding-top: 130px;
 		margin-top: -130px;
 	}
-
 }
 
 .contacts {

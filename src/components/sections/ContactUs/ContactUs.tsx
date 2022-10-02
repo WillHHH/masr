@@ -37,25 +37,27 @@ const ContactUs: FC<ContactUsProps & SectionTitleProps> = ({
   };
 
   return (
-    <Container className={cx(styles.base, className)}>
-      <a id="contact-us" className={styles.anchor} />
-      <Reveal>
-        <SectionTitle title={title} content={content} />
-      </Reveal>
-      <Reveal className={styles.contacts}>
-        {contacts?.map((v, i) => (
-          <div key={i}>
-            <div className={styles.asset}>{renderIcon(v.type)}</div>
-            <div
-              className={styles.info}
-              dangerouslySetInnerHTML={{
-                __html: v.content,
-              }}
-            />
-          </div>
-        ))}
-      </Reveal>
-    </Container>
+    <div className={styles.outer}>
+      <Container className={cx(styles.base, className)}>
+        <a id="contact-us" className={styles.anchor} />
+        <Reveal>
+          <SectionTitle title={title} content={content} />
+        </Reveal>
+        <Reveal className={styles.contacts}>
+          {contacts?.map((v, i) => (
+            <div key={i}>
+              <div className={styles.asset}>{renderIcon(v.type)}</div>
+              <div
+                className={styles.info}
+                dangerouslySetInnerHTML={{
+                  __html: v.content,
+                }}
+              />
+            </div>
+          ))}
+        </Reveal>
+      </Container>
+    </div>
   );
 };
 

@@ -22,15 +22,17 @@ const ServicesSection: FC<ServicesSectionProps & SectionTitleProps> = ({
   content,
 }) => {
   return (
-    <Container className={cx(styles.base, className)}>
-      <a id="services" className={styles.anchor} />
-      <SectionTitle title={title} content={content} />
-      <Reveal className={styles.cards}>
-        {cards?.map((v, i) => (
-          <ServiceCard key={i} number={i + 1} {...v} />
-        ))}
-      </Reveal>
-    </Container>
+    <div className={styles.outer}>
+      <Container className={cx(styles.base, className)}>
+        <a id="services" className={styles.anchor} />
+        <SectionTitle title={title} content={content} />
+        <Reveal className={styles.cards}>
+          {cards?.map((v, i) => (
+            <ServiceCard key={i} number={i + 1} {...v} />
+          ))}
+        </Reveal>
+      </Container>
+    </div>
   );
 };
 

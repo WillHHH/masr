@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import ServicesSection from "components/sections/ServicesSection/ServicesSection";
 import WhatWeDo from "components/sections/WhatWeDo/WhatWeDo";
 import ContactUs from "components/sections/ContactUs/ContactUs";
+import ComingSoon from "components/sections/ComingSoon/ComingSoon";
 import { serviceCards, contactInfo } from "data/mock/custom";
 
 type ShellProps = {
@@ -66,6 +67,10 @@ const Shell = ({ header, footer, contentLocales, children }: ShellProps) => {
           title="Contact Us"
           content="There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer."
           contacts={contactInfo}
+        />
+        <ComingSoon
+          title="Coming Soon"
+          content="There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer."
         />
       </div>
       {footer && <Footer story={footer.story} />}
