@@ -13,7 +13,7 @@ const FourOhFour: FC<FourOhFourProps> = ({ className }) => {
     <div className={cx(styles.base, className)}>
       <Container>
         <h1>Page Not Found</h1>
-        <Button text="Home" href="/" />
+        <Button text="Home" href="/" mode="dark" />
       </Container>
     </div>
   );

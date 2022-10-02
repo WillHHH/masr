@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import cx from "classnames";
 import styles from "./HomePageHero.module.scss";
 import Button from "components/common/Button/Button";
+import Logo from "components/common/Logo/Logo";
 import Container from "components/Layout/Container";
 import { useRouter } from "next/router";
 import { HeroTitleTexts } from "./HeroTitleTexts";
@@ -42,6 +43,7 @@ const HomePageHero = ({
 
   return (
     <div className={cx(styles.base, className, playerActive && styles.popup)}>
+      <a id="home" className={styles.anchor} />
       <Container className={styles.body}>
         <h2 className={styles.title}>
           <div className={styles.align}>
@@ -60,6 +62,7 @@ const HomePageHero = ({
               {...getMotionProps({ order: 1 })}
             >
               {titleTexts?.line3}
+              <Logo />
             </motion.h2>
             {/* {cta && (
               <motion.div {...getMotionProps({ order: 2 })}>
@@ -82,7 +85,7 @@ const HomePageHero = ({
         <video
           ref={embeddedVideoRef}
           className={styles.video}
-          src={image}
+          src={"/video/hero.mp4"}
           playsInline
           loop
           muted

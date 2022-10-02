@@ -39,6 +39,14 @@ const mockedRoutes = [
 
 const Nav = ({ className, isMenuOpen, routes }: NavProps) => {
   const router = useRouter();
+
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    document
+      .getElementById(id)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <ul className={cx(styles.base, className, isMenuOpen && styles.menuOpen)}>
       {mockedRoutes?.map((route) => {
@@ -47,10 +55,10 @@ const Nav = ({ className, isMenuOpen, routes }: NavProps) => {
             <LinkWrap
               className={cx(
                 styles.link,
-                (router.asPath + "/").startsWith(route.href) &&
-                styles.active,
+                (router.asPath + "/").startsWith(route.href) && styles.active,
               )}
               href={route.href}
+              onClick={(e) => handleClick(e, route.href.slice(2))}
             >
               {route.label}
             </LinkWrap>

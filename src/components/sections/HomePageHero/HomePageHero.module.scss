@@ -37,7 +37,7 @@
     height: 100vh;
   }
 
-  background: rgb(56, 21, 81);
+  background: rgba(21, 9, 29, 0.9);
   z-index: 500;
   overflow: hidden;
   .video {
@@ -107,6 +107,20 @@
   }
 }
 
+.line2 {
+  font-size: 25px !important;
+}
+.line3 {
+  img {
+    zoom: 1.4;
+    margin-top: -30px;
+
+    @include media($max-xs){
+      zoom: 1.2;
+    }
+  }
+}
+
 .line1,
 .line2,
 .line3 {
@@ -137,7 +151,7 @@
     margin-left: 0;
   }
 
-  &.arButton{
+  &.arButton {
     margin-left: 0;
     margin-right: 32px;
 

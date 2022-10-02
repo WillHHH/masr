@@ -1,10 +1,7 @@
 import { useRouter } from "next/router";
 import type { StoryblokResult } from "storyblok-js-client";
-import {
-  useStoryblokState,
-  getStoryblokApi,
-  StoryblokComponent,
-} from "@storyblok/react";
+import StoryblokClient from "storyblok-js-client";
+import { useStoryblokState, StoryblokComponent } from "@storyblok/react";
 
 import "util/storyblok";
 import FourOhFour from "components/common/404/404";
@@ -33,7 +30,7 @@ const PreRoute = (props) => {
 
 const Route = ({ story: initialStory, sbParams, preview, ...props }) => {
   // These come back from server as a single string, so fixing here
-  sbParams.resolve_relations = resolve_relations;
+  // sbParams.resolve_relations = resolve_relations;
 
   const story = useStoryblokState<any>(initialStory, sbParams);
 
@@ -54,12 +51,16 @@ export async function getStaticProps({
   params,
   preview = false,
 }) {
-  const storyblokApi = getStoryblokApi();
+  const Storyblok = new StoryblokClient({
+    accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
+    region: "us", // if US server
+  });
   const slug = params?.slug ? params.slug.join("/") : "home";
 
   const sbParams: any = {
     version: "published", // "published" or "draft"
-    resolve_relations: resolve_relations,
+    cv: Date.now(),
+    // resolve_relations: resolve_relations,
   };
 
   if (preview || !!process.env.NEXT_PUBLIC_PREVIEW) {
@@ -67,12 +68,11 @@ export async function getStaticProps({
     sbParams.cv = Date.now();
   }
 
-  const localeString =
-    slug === "comp" ? "" : locale !== "default" ? locale : "en";
+  const localeString = locale !== "default" ? locale : "en";
 
   let result: StoryblokResult;
   try {
-    result = await storyblokApi.get(
+    result = await Storyblok.get(
       `cdn/stories/${localeString}/${slug === "home" ? "" : slug}`,
       sbParams,
     );
@@ -89,11 +89,11 @@ export async function getStaticProps({
   let footerResult: StoryblokResult;
   try {
     [headerResult, footerResult] = await Promise.all([
-      storyblokApi.get(`cdn/stories/${localeString}/header`, sbParams),
-      storyblokApi.get(`cdn/stories/${localeString}/footer`, sbParams),
+      Storyblok.get(`cdn/stories/${localeString}/header`, sbParams),
+      Storyblok.get(`cdn/stories/${localeString}/footer`, sbParams),
     ]);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
 
   // Build list of additional locales content for this page
@@ -109,8 +109,8 @@ export async function getStaticProps({
   return {
     props: {
       story: result?.data ? result.data.story : false,
-      header: headerResult.data,
-      footer: footerResult.data,
+      header: headerResult?.data,
+      footer: footerResult?.data,
       preview,
       sbParams,
       locale,

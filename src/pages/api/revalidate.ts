@@ -9,7 +9,7 @@ export default async function handler(
     return res.status(401).json({ message: "Invalid token" });
   }
 
-  console.log("revalidate", req.body);
+  // console.log("revalidate", req.body);
 
   try {
     await res.revalidate("/path-to-revalidate");

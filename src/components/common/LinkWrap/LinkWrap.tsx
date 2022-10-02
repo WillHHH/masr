@@ -15,6 +15,7 @@ export type LinkWrapProps = {
   onFocus?: () => void;
   onBlur?: () => void;
   onKeyDown?: (e) => void;
+  onClick?: (e) => void;
   children?: ReactNode;
 };
 
@@ -29,6 +30,7 @@ const LinkWrap: FC<LinkWrapProps> = ({
   onFocus,
   onBlur,
   onKeyDown,
+  onClick,
 }) => {
   const route = useRouter();
   const otherProps = {
@@ -36,6 +38,7 @@ const LinkWrap: FC<LinkWrapProps> = ({
     onFocus,
     onBlur,
     onKeyDown,
+    onClick,
     className: cx(styles.base, className),
   };
   href = href?.startsWith("/") && href !== "/" ? href.substring(1) : href;

@@ -1,0 +1,40 @@
+@import "styles/utils/index";
+
+.base {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 700px;
+	margin: auto;
+
+	&.center {
+		@include media($min-sm) {
+			align-items: center;
+
+			h2,
+			p {
+				text-align: center;
+			}
+		}
+	}
+
+	h2 {
+		@include interior-page-title;
+		font-weight: 600 !important;
+		margin: 0;
+	}
+
+	hr {
+		width: 50px;
+		height: 3px;
+		background-color: $masr-red;
+		margin: 15px 0;
+	}
+
+	p {
+		padding: 10px 0;
+		color: $gray-2;
+		@include paragraph;
+		font-weight: 400;
+	}
+}

@@ -6,6 +6,11 @@ import Footer from "./Footer/Footer";
 import styles from "./Shell.module.scss";
 import { useRouter } from "next/router";
 
+import ServicesSection from "components/sections/ServicesSection/ServicesSection";
+import WhatWeDo from "components/sections/WhatWeDo/WhatWeDo";
+import ContactUs from "components/sections/ContactUs/ContactUs";
+import { serviceCards, contactInfo } from "data/mock/custom";
+
 type ShellProps = {
   children: ReactNode;
   header: any;
@@ -47,6 +52,21 @@ const Shell = ({ header, footer, contentLocales, children }: ShellProps) => {
           <Header story={header.story} contentLocales={contentLocales} />
         )}
         {children}
+        <ServicesSection
+          cards={serviceCards}
+          title="We Provide Best Services"
+          content="There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer."
+        />
+        <WhatWeDo
+          title="What We Do"
+          content="There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer."
+          items={["188", "194", "196", "197", "199", "200"]}
+        />
+        <ContactUs
+          title="Contact Us"
+          content="There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer."
+          contacts={contactInfo}
+        />
       </div>
       {footer && <Footer story={footer.story} />}
     </>
