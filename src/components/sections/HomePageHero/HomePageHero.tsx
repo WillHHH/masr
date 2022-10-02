@@ -85,7 +85,7 @@ const HomePageHero = ({
         <video
           ref={embeddedVideoRef}
           className={styles.video}
-          src={"/video/hero.mp4"}
+          src={image}
           playsInline
           loop
           muted
