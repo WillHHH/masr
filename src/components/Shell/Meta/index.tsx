@@ -31,14 +31,14 @@ const Meta = ({ router, story }: MetaProps) => {
   const renderTitle = () => {
     switch (router.locale) {
       case "zh":
-        return "MASR";
+        return "SR";
       default:
-        return "MASR";
+        return "SR";
     }
   };
 
   // TODO: Migrate these default values to CMS global config
-  let title = seo?.title ?? "MASR";
+  let title = seo?.title ?? "SR";
   if (title.length < 1) {
     switch (story?.content?.component) {
       case "page_bio":

@@ -20,7 +20,7 @@ const Logo: FC<LogoProps> = ({ className, onCloseMenu }) => {
           // srcSet="/images/logo.png 1x, /images/logo@2x.png 2x, /images/logo@3x.png 3x"
           width="250"
           height="115"
-          alt="MASR LOGO"
+          alt="SR LOGO"
           onClick={onCloseMenu}
         />
       </a>
