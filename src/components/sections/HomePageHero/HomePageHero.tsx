@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import cx from "classnames";
 import styles from "./HomePageHero.module.scss";
 import Button from "components/common/Button/Button";
@@ -31,7 +31,7 @@ const HomePageHero = ({
 
   const { locale } = useRouter();
   const titleTexts = HeroTitleTexts[locale] || HeroTitleTexts["en"];
-  const embeddedVideoRef = useRef(null);
+  const embeddedVideoRef = useRef<HTMLVideoElement>(null);
   const [offset] = useScrollOffset();
   if (embeddedVideoRef.current) {
     if (offset > 900) {
@@ -64,7 +64,7 @@ const HomePageHero = ({
               {titleTexts?.line3}
               <Logo />
             </motion.h2>
-            {/* {cta && (
+            {
               <motion.div {...getMotionProps({ order: 2 })}>
                 <Button
                   className={cx(
@@ -72,30 +72,43 @@ const HomePageHero = ({
                     locale === "ar" && styles.arButton,
                   )}
                   onClick={() => setPlayerActive(true)}
-                  text={cta}
+                  text={"Watch Video"}
                   type="box"
                   mode="dark"
                 />
               </motion.div>
-            )} */}
+            }
           </div>
         </h2>
       </Container>
       <div className={styles.videoWrap}>
         <video
+          id="bg-video"
           ref={embeddedVideoRef}
           className={styles.video}
-          src={image}
+          webkit-playsinline="true"
           playsInline
+          preload="auto"
+          controlsList="nodownload"
+          data-wf-ignore="true"
+          data-object-fit="cover"
+          x5-video-player-type="h5"
           loop
           muted
           autoPlay
-        ></video>
+        >
+          <source src={image} type="video/mp4" data-wf-ignore="true" />
+        </video>
+        <img
+          className={styles.video}
+          src="/images/bg-mobile.jpeg"
+          alt="background"
+        />
       </div>
-      {videoId && playerActive && (
+      {playerActive && (
         <VideoPlayer
-          isYoutube={isYoutube}
-          videoId={videoId}
+          isYoutube={true}
+          videoId={"PqaZfu6AUoI"}
           onClose={() => setPlayerActive(false)}
         />
       )}

@@ -48,6 +48,12 @@
     height: 100%;
     opacity: 0.35;
   }
+
+  @include media($max-sm) {
+    video {
+      display: none;
+    }
+  }
 }
 
 .body {
@@ -92,7 +98,8 @@
   }
 }
 .bottom {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 
   .line3 {
@@ -115,7 +122,7 @@
     zoom: 1.4;
     margin-top: -30px;
 
-    @include media($max-xs){
+    @include media($max-xs) {
       zoom: 1.2;
     }
   }

@@ -47,6 +47,6 @@ module.exports = withBundleAnalyzer({
     localeDetection: false,
   },
   images: {
-    domains: ["a.storyblok.com", "storage.googleapis.com", "s3.amazonaws.com"],
+    domains: ["a-us.storyblok.com", "a.storyblok.com", "storage.googleapis.com", "s3.amazonaws.com"],
   },
 });
