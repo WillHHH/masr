@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import cx from "classnames";
 
 import LinkWrap from "components/common/LinkWrap/LinkWrap";
+import { useWindowSize } from "usehooks-ts";
 
 import styles from "./Nav.module.scss";
 
@@ -16,6 +17,7 @@ type NavProps = {
   className?: string;
   isMenuOpen?: boolean;
   routes?: TRoute[];
+  onClose?: () => void;
 };
 
 const mockedRoutes = [
@@ -37,9 +39,9 @@ const mockedRoutes = [
   },
 ];
 
-const Nav = ({ className, isMenuOpen, routes }: NavProps) => {
+const Nav = ({ className, isMenuOpen, routes, onClose }: NavProps) => {
   const router = useRouter();
-
+  const { width: viewportWidth = 0 } = useWindowSize();
   const handleClick = (e, id) => {
     e.preventDefault();
     document
@@ -55,10 +57,14 @@ const Nav = ({ className, isMenuOpen, routes }: NavProps) => {
             <LinkWrap
               className={cx(
                 styles.link,
-                (router.asPath + "/").startsWith(route.href) && styles.active,
+                // (router.asPath + "/").startsWith(route.href) && styles.active,
               )}
               href={route.href}
-              onClick={(e) => handleClick(e, route.href.slice(2))}
+              onClick={(e) =>
+                viewportWidth > 970
+                  ? handleClick(e, route.href.slice(2))
+                  : onClose()
+              }
             >
               {route.label}
             </LinkWrap>
