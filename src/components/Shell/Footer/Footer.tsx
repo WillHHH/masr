@@ -23,6 +23,32 @@ const Footer = ({ className, story }: FooterProps) => {
   const [, scrollProgress] = useScrollOffset();
   const bgOffset = -Math.round((scrollProgress / 4) * 200) + 50;
 
+  const mockedRoutes = [
+    {
+      label: "Home",
+      href: "/#home",
+    },
+    {
+      label: "Services",
+      href: "/#services",
+    },
+    {
+      label: "What We Do",
+      href: "/#what-we-do",
+    },
+    {
+      label: "Contact Us",
+      href: "/#contact-us",
+    },
+  ];
+
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    document
+      .getElementById(id)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <footer
       className={cx(styles.base, className)}
@@ -36,9 +62,12 @@ const Footer = ({ className, story }: FooterProps) => {
             <Logo />
             {/* <img src="/images/footer-logo.svg" alt="FGS Global" /> */}
             <ul>
-              {routes?.map((route) => (
-                <li key={route._uid}>
-                  <LinkWrap href={route.href?.cached_url}>
+              {mockedRoutes?.map((route) => (
+                <li key={route.label}>
+                  <LinkWrap
+                    href={route.href}
+                    onClick={(e) => handleClick(e, route.href.slice(2))}
+                  >
                     {route.label}
                   </LinkWrap>
                 </li>
@@ -59,18 +88,17 @@ const Footer = ({ className, story }: FooterProps) => {
                   </li>
                 ))} */}
                 <li>
-                  <LinkWrap>Copyright © 2021 - 2022 SR AUTO GROUP All Rights Reserved.</LinkWrap>
+                  <LinkWrap>
+                    Copyright © 2021 - 2022 SR AUTO GROUP All Rights Reserved.
+                  </LinkWrap>
                 </li>
               </ul>
             </div>
             <div className={styles.right}>
-              <LinkWrap href="https://www.linkedin.com/company/fgs-global/">
-                <LinkedIn />
-              </LinkWrap>
-              <LinkWrap href="https://www.instagram.com/fgsglobal/">
+              <LinkWrap href="/">
                 <Instagram />
               </LinkWrap>
-              <LinkWrap href="https://twitter.com/i/user/394838810">
+              <LinkWrap href="/">
                 <Twitter />
               </LinkWrap>
             </div>

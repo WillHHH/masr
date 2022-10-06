@@ -67,8 +67,8 @@
     transition: opacity $overlay-shift, visibility $overlay-shift;
     position: fixed;
     z-index: 3000;
-    top: 115px;
-    height: calc(100vh - 110px); // Menu content disappears without this
+    top: 105px;
+    height: calc(100vh - 100px); // Menu content disappears without this
     bottom: 0;
     right: 0;
     left: 0;
@@ -117,7 +117,8 @@
         line-height: 24px;
       }
       li.noRightMargin {
-        a, div {
+        a,
+        div {
           margin-right: 12px;
         }
       }

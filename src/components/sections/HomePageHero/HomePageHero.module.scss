@@ -37,7 +37,7 @@
     height: 100vh;
   }
 
-  background: rgb(56, 21, 81);
+  background: rgba(21, 9, 29, 0.9);
   z-index: 500;
   overflow: hidden;
   .video {
@@ -47,6 +47,13 @@
     width: 100%;
     height: 100%;
     opacity: 0.35;
+  }
+
+  @include media($max-sm) {
+    video {
+      display: none;
+    }
+    background: rgba(21, 9, 29, 0.8);
   }
 }
 
@@ -92,7 +99,8 @@
   }
 }
 .bottom {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 
   .line3 {
@@ -104,6 +112,20 @@
   @include media($max-md) {
     display: block;
     width: fit-content;
+  }
+}
+
+.line2 {
+  font-size: 25px !important;
+}
+.line3 {
+  img {
+    zoom: 1.4;
+    margin-top: -30px;
+
+    @include media($max-xs) {
+      zoom: 1.2;
+    }
   }
 }
 
@@ -137,7 +159,7 @@
     margin-left: 0;
   }
 
-  &.arButton{
+  &.arButton {
     margin-left: 0;
     margin-right: 32px;
 

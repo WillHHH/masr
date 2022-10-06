@@ -34,7 +34,7 @@
   }
   &.active {
     border-bottom-color: $white;
-    font-family: $secondary-font-family;
+    // font-family: $secondary-font-family;
     font-style: italic;
   }
   @include media($max-md) {

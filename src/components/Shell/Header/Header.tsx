@@ -84,13 +84,13 @@ const Header = ({ className, story, contentLocales }: HeaderProps) => {
         </a>
         <Logo className={styles.logo} onCloseMenu={() => setOpen(false)} />
         <div className={cx(styles.navWrap, isOpen && styles.open)}>
-          <Nav routes={story?.content.routes} />
-          <div className={cx(locale === "ar" && styles.langWrapperArabic)}>
-            <LangToggle
+          <Nav routes={story?.content.routes} onClose={() => setOpen(false)} />
+          <div>
+            {/* <LangToggle
               className={styles.lang}
               onCloseMenu={() => setOpen(false)}
               contentLocales={contentLocales}
-            />
+            /> */}
           </div>
           <div className={styles.bottom}>
             <div className={styles.left}>
@@ -118,8 +118,7 @@ const Header = ({ className, story, contentLocales }: HeaderProps) => {
                 </LinkWrap>
               </div>
             </div>
-            <div className={styles.right}>
-            </div>
+            <div className={styles.right}></div>
           </div>
         </div>
         <div className={styles.menuWrap}>

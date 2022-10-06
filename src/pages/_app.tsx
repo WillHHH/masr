@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { ConfigContext } from "components/Shell/ConfigContext";
 import Meta from "components/Shell/Meta";
 import getCookie from "util/cookie";
-import { SessionProvider } from "next-auth/react";
 
 import "../styles/main.scss";
 
@@ -30,11 +29,6 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { pathname, asPath, query, isFallback, locale } = router;
 
-  useEffect(() => {
-    const dir = locale == "ar" ? "rtl" : "ltr";
-    document.querySelector("html").setAttribute("dir", dir);
-  }, [locale]);
-
   const switchLocale: TSwitchLocale = (locale) => {
     router.push({ pathname, query }, asPath, {
       locale: locale,
@@ -42,34 +36,32 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <NextIntlProvider messages={pageProps.localizedStrings}>
-        <ConfigContext.Provider
-          value={{
-            header: pageProps?.header,
-            footer: pageProps?.footer,
-            headerColor: "56, 21, 81",
-          }}
-        >
-          <SwitchLocaleContext.Provider value={switchLocale}>
-            {isFallback ? null : (
-              <>
-                {pageProps?.story && (
-                  <Meta story={pageProps.story} router={router} />
-                )}
-                <Shell
-                  header={pageProps?.header}
-                  footer={pageProps?.footer}
-                  contentLocales={pageProps.contentLocales}
-                >
-                  <Component {...pageProps} />
-                </Shell>
-              </>
-            )}
-          </SwitchLocaleContext.Provider>
-        </ConfigContext.Provider>
-      </NextIntlProvider>
-    </SessionProvider>
+    <NextIntlProvider messages={pageProps.localizedStrings}>
+      <ConfigContext.Provider
+        value={{
+          header: pageProps?.header,
+          footer: pageProps?.footer,
+          headerColor: "56, 21, 81",
+        }}
+      >
+        <SwitchLocaleContext.Provider value={switchLocale}>
+          {isFallback ? null : (
+            <>
+              {pageProps?.story && (
+                <Meta story={pageProps.story} router={router} />
+              )}
+              <Shell
+                header={pageProps?.header}
+                footer={pageProps?.footer}
+                contentLocales={pageProps.contentLocales}
+              >
+                <Component {...pageProps} />
+              </Shell>
+            </>
+          )}
+        </SwitchLocaleContext.Provider>
+      </ConfigContext.Provider>
+    </NextIntlProvider>
   );
 }
 
