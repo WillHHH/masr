@@ -1,0 +1,19 @@
+@import "styles/utils/index";
+
+.base {
+	background: url("/images/coming-soon.jpeg") rgba($color: black, $alpha: 0.5);
+	background-size: cover;
+	background-position: center;
+	height: 600px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.coming {
+	* {
+		color: white !important;
+	}
+}

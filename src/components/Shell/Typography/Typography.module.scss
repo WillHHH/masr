@@ -1,0 +1,96 @@
+@import "styles/utils/index";
+
+.base {
+  > div {
+    margin-bottom: 32px;
+  }
+}
+
+.typeStyle {
+  margin-bottom: 32px;
+}
+
+.info {
+  padding: 8px 16px;
+  @include font-size(14px);
+  font-family: monospace;
+  background: #eeeeee;
+}
+
+.darkWrap {
+  padding: 40px;
+  background: $black;
+  color: $white;
+}
+.lightWrap {
+  padding: 40px;
+  background: $white;
+  color: $black;
+}
+
+.home-page-main {
+  @include home-page-main;
+}
+
+.interior-page-title {
+  @include interior-page-title;
+}
+
+.section-divider {
+  @include section-divider;
+}
+
+.big-section-title {
+  @include big-section-title;
+}
+
+.normal-section-title {
+  @include normal-section-title;
+}
+
+.normal-section-subtitle {
+  @include normal-section-subtitle;
+}
+
+.paragraph {
+  @include paragraph;
+}
+
+.buttons {
+  @include buttons;
+}
+
+.article-title {
+  @include article-title;
+}
+
+.article-date-and-category {
+  @include article-date-and-category;
+}
+
+.subtitles {
+  @include subtitles;
+}
+
+.subtitles2 {
+  @include subtitles2;
+}
+
+.bullets {
+  @include bullets;
+}
+
+.bio-name {
+  @include bio-name;
+}
+
+.bio-title {
+  @include bio-title;
+}
+
+.styles {
+  padding: 8px 16px;
+  @include font-size(12px);
+  font-family: monospace;
+  background: #eeeeee;
+}

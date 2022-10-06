@@ -1,0 +1,6 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="15" cy="15" r="14.4" transform="rotate(90 15 15)" stroke="white" stroke-width="1.2"/>
+<circle cx="15" cy="15" r="14.4" transform="rotate(90 15 15)" stroke="white" stroke-width="1.2"/>
+<circle cx="15" cy="15" r="14.4" transform="rotate(90 15 15)" stroke="white" stroke-width="1.2"/>
+<path d="M14.6464 21.3536C14.8417 21.5488 15.1583 21.5488 15.3536 21.3536L18.5355 18.1716C18.7308 17.9763 18.7308 17.6597 18.5355 17.4645C18.3403 17.2692 18.0237 17.2692 17.8284 17.4645L15 20.2929L12.1716 17.4645C11.9763 17.2692 11.6597 17.2692 11.4645 17.4645C11.2692 17.6597 11.2692 17.9763 11.4645 18.1716L14.6464 21.3536ZM14.5 7V21H15.5V7H14.5Z" fill="white"/>
+</svg>

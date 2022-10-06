@@ -1,0 +1,62 @@
+@import 'styles/utils/index';
+
+.fadeUpInit {
+  > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all $layout-shift;
+  }
+}
+
+.fadeUpVisible {
+  > * {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.clipInit {
+  display: block;
+  overflow: hidden;
+
+  > * {
+    transform: translateY(100%);
+    transition: all $layout-shift;
+  }
+}
+
+.clipVisible {
+  > * {
+    transform: none;
+  }
+}
+
+.fadeLeftInit {
+  > * {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all $layout-shift;
+  }
+}
+
+.fadeLeftVisible {
+  > * {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@for $i from 1 to 100 {
+  .stagger > *:nth-child(#{$i}) {
+    transition-delay: #{$i * 111}ms;
+  }
+}
+
+.base {
+  @media print {
+    > * {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

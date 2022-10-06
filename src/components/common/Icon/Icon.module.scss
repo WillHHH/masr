@@ -1,0 +1,14 @@
+@import "styles/utils/index";
+
+.base {
+  img {
+    width: 392px;
+    height: auto;
+  }
+
+  @include media($max-sm) {
+    img {
+      width: 244px;
+    }
+  }
+}

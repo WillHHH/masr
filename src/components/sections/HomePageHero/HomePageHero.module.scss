@@ -1,0 +1,180 @@
+@import "styles/utils/index";
+
+.base {
+  align-items: center;
+  padding-bottom: 130px;
+  position: relative;
+  z-index: 2000;
+  height: calc(100vh - 150px);
+
+  @media (min-height: 1024px) {
+    height: calc(100vh - 250px);
+  }
+
+  @media (max-height: 768px) {
+    height: 100vh;
+    z-index: 2400;
+  }
+
+  &.popup {
+    z-index: 3000;
+  }
+
+  margin-bottom: -125px;
+}
+.videoWrap {
+  position: absolute;
+  top: -121px;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 150px);
+
+  @media (min-height: 1024px) {
+    height: calc(100vh - 250px);
+  }
+
+  @media (max-height: 768px) {
+    height: 100vh;
+  }
+
+  background: rgba(21, 9, 29, 0.9);
+  z-index: 500;
+  overflow: hidden;
+  .video {
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.35;
+  }
+
+  @include media($max-sm) {
+    video {
+      display: none;
+    }
+    background: rgba(21, 9, 29, 0.8);
+  }
+}
+
+.body {
+  padding-bottom: 80px;
+  z-index: 2000;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include media($max-md) {
+    padding-bottom: 100px;
+  }
+}
+.title {
+  width: 100%;
+  text-align: center;
+  @include media($max-md) {
+    text-align: left;
+  }
+}
+
+.align {
+  display: flex;
+  justify-content: center;
+
+  @include media($max-md) {
+    justify-content: flex-start;
+  }
+}
+
+.line2 {
+  font-family: $secondary-font-family !important;
+  font-style: italic;
+  line-height: 74px !important;
+
+  @include media($max-md) {
+    line-height: 50px !important;
+  }
+
+  @include media($max-md) {
+    line-height: 52px !important;
+  }
+}
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .line3 {
+    font-family: $secondary-font-family;
+    font-style: italic;
+    margin: 0;
+  }
+
+  @include media($max-md) {
+    display: block;
+    width: fit-content;
+  }
+}
+
+.line2 {
+  font-size: 25px !important;
+}
+.line3 {
+  img {
+    zoom: 1.4;
+    margin-top: -30px;
+
+    @include media($max-xs) {
+      zoom: 1.2;
+    }
+  }
+}
+
+.line1,
+.line2,
+.line3 {
+  @include home-page-main(dark-mode);
+  white-space: nowrap;
+
+  @include media($max-md) {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  @include media($max-xs) {
+    font-size: 45px;
+  }
+}
+.img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.button {
+  display: inline;
+  margin-left: 32px;
+  margin-top: 16px;
+  @include media($max-md) {
+    display: block;
+    width: fit-content;
+    margin-left: 0;
+  }
+
+  &.arButton {
+    margin-left: 0;
+    margin-right: 32px;
+
+    @include media($max-md) {
+      margin-right: 0;
+      position: relative;
+      top: 16px;
+    }
+  }
+}
+
+.scrollToBottom {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 2%;
+  z-index: 3000;
+}

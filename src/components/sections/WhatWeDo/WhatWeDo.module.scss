@@ -1,0 +1,120 @@
+@import "styles/utils/index";
+
+.section {
+	overflow: hidden;
+	width: 100%;
+	background: black;
+}
+
+.base {
+	padding-top: 64px;
+	padding-bottom: 80px;
+	color: #ffffff;
+	position: relative;
+
+	.anchor {
+		display: block;
+		padding-top: 130px;
+		margin-top: -130px;
+	}
+}
+.header {
+	* {
+		color: #ffffff !important;
+	}
+}
+
+.arrow {
+	border-radius: 50%;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.8;
+	}
+	&:active {
+		background: #292929;
+	}
+	&:focus {
+		background: #000;
+	}
+	&.disabled {
+		opacity: 0.4;
+		cursor: default;
+	}
+}
+.arrows {
+	width: fit-content;
+	position: absolute;
+	top: 60px;
+	right: 60px;
+
+	@include media($max-sm) {
+		display: none;
+	}
+	& > * {
+		margin-left: 12px;
+		&:focus,
+		&:hover {
+			background-color: transparent;
+		}
+	}
+	&.arrowsReversed {
+		direction: rtl;
+	}
+}
+.arrow-left {
+	transform: scale(0.83) rotate(180deg);
+	@include media($max-sm) {
+		transform: scale(0.57) rotate(180deg);
+	}
+}
+.arrow-right {
+	transform: scale(0.83);
+	@include media($max-sm) {
+		margin-left: 0;
+		transform: scale(0.57);
+	}
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+	.button {
+		border-color: #ffffff;
+	}
+}
+.slidesWraper {
+	direction: ltr;
+}
+.slidesContainer {
+	overflow: hidden;
+	position: relative;
+	direction: ltr;
+}
+.slides {
+	display: flex;
+	position: relative;
+	transition: transform 0.7s ease-in-out;
+	margin-top: 40px;
+	.slide {
+		flex: 0 0 480px;
+		cursor: pointer;
+		margin-left: 35px;
+		@include media($max-xs) {
+			flex-basis: 100%;
+		}
+		&:first-child {
+			margin-left: 0;
+		}
+		img {
+			width: 500px;
+			height: 300px;
+
+			@include media($max-sm) {
+				width: 100%;
+				height: auto;
+				object-fit: contain;
+			}
+		}
+	}
+}

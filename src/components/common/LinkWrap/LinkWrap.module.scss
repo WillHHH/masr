@@ -1,0 +1,12 @@
+@import "styles/utils/index";
+
+.base {
+	position: relative;
+	text-decoration: none;
+	color: $black;
+	width: fit-content;
+}
+
+a.base {
+	cursor: pointer;
+}

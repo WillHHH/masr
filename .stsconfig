@@ -1,0 +1,14 @@
+/**
+ * @type {import('strapi-to-typescript')}
+ */
+const config = {
+  input: [
+    '../cms/api/',
+    '../cms/node_modules/strapi-plugin-upload/models/'
+  ],
+  inputGroup: '../cms/components/',
+  output: 'src/types/cms/',
+  enum: true,
+  nested: false
+}
+module.exports = config;
