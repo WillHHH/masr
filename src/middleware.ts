@@ -9,18 +9,18 @@ const middleware: NextMiddleware = (req) => {
     return NextResponse.next();
   }
 
-  const id = req.nextUrl.searchParams.get("_storyblok");
-  const space = req.nextUrl.searchParams.get("_storyblok_tk[space_id]");
-  // If there is an id and a space, it's probably a preview link
-  if (req.url.indexOf("?") && id && space) {
-    // We are going to reuse the URL that comes in from the request, but
-    // that URL will be regional, so we need to do some surgery to keep
-    // it from redirecting to a regionalized API url.
-    const url = req.nextUrl.clone();
-    url.pathname = `/api/preview`;
-    url.search = `?secret=${process.env.STORYBLOK_PREVIEW_TOKEN}&slug=${req.nextUrl.locale}${req.nextUrl.pathname}`;
-    return NextResponse.redirect(url);
-  }
+  // const id = req.nextUrl.searchParams.get("_storyblok");
+  // const space = req.nextUrl.searchParams.get("_storyblok_tk[space_id]");
+  // // If there is an id and a space, it's probably a preview link
+  // if (req.url.indexOf("?") && id && space) {
+  //   // We are going to reuse the URL that comes in from the request, but
+  //   // that URL will be regional, so we need to do some surgery to keep
+  //   // it from redirecting to a regionalized API url.
+  //   const url = req.nextUrl.clone();
+  //   url.pathname = `/api/preview`;
+  //   url.search = `?secret=${process.env.STORYBLOK_PREVIEW_TOKEN}&slug=${req.nextUrl.locale}${req.nextUrl.pathname}`;
+  //   return NextResponse.redirect(url);
+  // }
 
   const region = getRegion(req);
   const gtmid = getRegionGTM(region);

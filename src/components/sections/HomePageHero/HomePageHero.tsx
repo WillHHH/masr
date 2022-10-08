@@ -25,7 +25,6 @@ const HomePageHero = ({
   cta,
   image,
   videoId,
-  isYoutube,
 }: HomePageHeroProps) => {
   const [playerActive, setPlayerActive] = useState(false);
 
@@ -72,7 +71,7 @@ const HomePageHero = ({
                     locale === "ar" && styles.arButton,
                   )}
                   onClick={() => setPlayerActive(true)}
-                  text={"Watch Video"}
+                  text={cta}
                   type="box"
                   mode="dark"
                 />
@@ -107,8 +106,8 @@ const HomePageHero = ({
       </div>
       {playerActive && (
         <VideoPlayer
-          isYoutube={true}
-          videoId={"PqaZfu6AUoI"}
+          isYoutube
+          videoId={videoId}
           onClose={() => setPlayerActive(false)}
         />
       )}

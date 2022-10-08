@@ -20,51 +20,23 @@ type NavProps = {
   onClose?: () => void;
 };
 
-const mockedRoutes = [
-  {
-    label: "Home",
-    href: "/#home",
-  },
-  {
-    label: "Services",
-    href: "/#services",
-  },
-  {
-    label: "What We Do",
-    href: "/#what-we-do",
-  },
-  {
-    label: "Contact Us",
-    href: "/#contact-us",
-  },
-];
-
 const Nav = ({ className, isMenuOpen, routes, onClose }: NavProps) => {
   const router = useRouter();
   const { width: viewportWidth = 0 } = useWindowSize();
-  const handleClick = (e, id) => {
-    e.preventDefault();
-    document
-      .getElementById(id)
-      .scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <ul className={cx(styles.base, className, isMenuOpen && styles.menuOpen)}>
-      {mockedRoutes?.map((route) => {
+      {routes?.map((route) => {
         return (
           <li key={route.label} className={styles.href}>
             <LinkWrap
               className={cx(
                 styles.link,
-                // (router.asPath + "/").startsWith(route.href) && styles.active,
+                (router.asPath + "/").startsWith(route.href.cached_url) &&
+                  styles.active,
               )}
-              href={route.href}
-              onClick={(e) =>
-                viewportWidth > 970
-                  ? handleClick(e, route.href.slice(2))
-                  : onClose()
-              }
+              href={route.href.cached_url}
+              onClick={() => viewportWidth <= 970 && onClose()}
             >
               {route.label}
             </LinkWrap>

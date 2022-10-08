@@ -6,7 +6,7 @@ export const HeroTitleTexts = {
   },
   zh: {
     line1: "",
-    line2: "SR AUTO",
-    line3: "GROUP",
+    line2: "欢迎进入",
+    line3: "",
   },
 };

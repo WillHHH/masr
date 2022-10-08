@@ -13,6 +13,9 @@ const FourOhFour = dynamic(() => import("components/common/404/404"));
 const Header = dynamic(() => import("components/Shell/Header/Header"));
 const Footer = dynamic(() => import("components/Shell/Footer/Footer"));
 const SectionDividerBlok = dynamic(() => import("bloks/SectionDivider"));
+const InteriorMainPageHeaderBlok = dynamic(
+  () => import("bloks/InteriorMainPageHeader"),
+);
 
 function withDynamicBlok(DynamicComponent) {
   const Component: FC<{ blok: any }> = ({ blok }) => {
@@ -32,7 +35,7 @@ function withDynamicBlok(DynamicComponent) {
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
-  // bridge: true,
+  bridge: true,
   use: [apiPlugin],
   components: {
     page: Page,
@@ -43,5 +46,6 @@ storyblokInit({
     header: withDynamicBlok(Header),
     footer: withDynamicBlok(Footer),
     section_divider: withDynamicBlok(SectionDividerBlok),
+    interior_main_page_header: withDynamicBlok(InteriorMainPageHeaderBlok),
   },
 });

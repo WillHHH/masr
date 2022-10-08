@@ -86,11 +86,11 @@ const Header = ({ className, story, contentLocales }: HeaderProps) => {
         <div className={cx(styles.navWrap, isOpen && styles.open)}>
           <Nav routes={story?.content.routes} onClose={() => setOpen(false)} />
           <div>
-            {/* <LangToggle
+            <LangToggle
               className={styles.lang}
               onCloseMenu={() => setOpen(false)}
               contentLocales={contentLocales}
-            /> */}
+            />
           </div>
           <div className={styles.bottom}>
             <div className={styles.left}>
