@@ -53,7 +53,7 @@ const Shell = ({ header, footer, contentLocales, children }: ShellProps) => {
           <Header story={header.story} contentLocales={contentLocales} />
         )}
         {children}
-        <ServicesSection
+        {/* <ServicesSection
           cards={serviceCards}
           title="We Provide Best Services"
           content="There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer."
@@ -71,7 +71,7 @@ const Shell = ({ header, footer, contentLocales, children }: ShellProps) => {
         <ComingSoon
           title="Coming Soon"
           content="There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer."
-        />
+        /> */}
       </div>
       {footer && <Footer story={footer.story} />}
     </>

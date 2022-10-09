@@ -16,6 +16,7 @@ const SectionDividerBlok = dynamic(() => import("bloks/SectionDivider"));
 const InteriorMainPageHeaderBlok = dynamic(
   () => import("bloks/InteriorMainPageHeader"),
 );
+const ComingSoonBlok = dynamic(() => import("bloks/ComingSoon"));
 
 function withDynamicBlok(DynamicComponent) {
   const Component: FC<{ blok: any }> = ({ blok }) => {
@@ -35,7 +36,7 @@ function withDynamicBlok(DynamicComponent) {
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
-  bridge: true,
+  // bridge: true,
   use: [apiPlugin],
   components: {
     page: Page,
@@ -47,5 +48,6 @@ storyblokInit({
     footer: withDynamicBlok(Footer),
     section_divider: withDynamicBlok(SectionDividerBlok),
     interior_main_page_header: withDynamicBlok(InteriorMainPageHeaderBlok),
+    coming_soon: withDynamicBlok(ComingSoonBlok),
   },
 });

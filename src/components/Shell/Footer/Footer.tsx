@@ -23,32 +23,6 @@ const Footer = ({ className, story }: FooterProps) => {
   const [, scrollProgress] = useScrollOffset();
   const bgOffset = -Math.round((scrollProgress / 4) * 200) + 50;
 
-  const mockedRoutes = [
-    {
-      label: "Home",
-      href: "/#home",
-    },
-    {
-      label: "Services",
-      href: "/#services",
-    },
-    {
-      label: "What We Do",
-      href: "/#what-we-do",
-    },
-    {
-      label: "Contact Us",
-      href: "/#contact-us",
-    },
-  ];
-
-  const handleClick = (e, id) => {
-    e.preventDefault();
-    document
-      .getElementById(id)
-      .scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <footer
       className={cx(styles.base, className)}
@@ -62,12 +36,9 @@ const Footer = ({ className, story }: FooterProps) => {
             <Logo />
             {/* <img src="/images/footer-logo.svg" alt="FGS Global" /> */}
             <ul>
-              {mockedRoutes?.map((route) => (
+              {routes?.map((route) => (
                 <li key={route.label}>
-                  <LinkWrap
-                    href={route.href}
-                    onClick={(e) => handleClick(e, route.href.slice(2))}
-                  >
+                  <LinkWrap href={route.href.cached_url}>
                     {route.label}
                   </LinkWrap>
                 </li>
