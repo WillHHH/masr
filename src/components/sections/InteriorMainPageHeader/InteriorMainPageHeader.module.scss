@@ -27,6 +27,7 @@
 
   .title {
     @include normal-section-title(true);
+    font-weight: 600 !important;
     margin: 15px 0;
     padding-right: 20px;
   }
@@ -35,7 +36,7 @@
   }
 
   &.dark {
-    background-color: $purple-2;
+    background-color: $black;
     .title {
       @include normal-section-title(true);
     }
