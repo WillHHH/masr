@@ -3,18 +3,22 @@
 .base {
   display: grid;
   align-items: center;
-  background-image: url("/images/footer-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-attachment: fixed;
-  background-position: top center;
+  background-image: url("/images/header-bg.jpeg");
+  // background-repeat: no-repeat;
+  // background-size: 100% auto;
+  // background-attachment: fixed;
+  // background-position: top center;
+  background-size: auto 100%;
   @include media($max-md) {
-    background-size: auto 100%;
   }
 
   position: relative;
   margin-top: -121px;
   padding-top: 121px;
+
+  .bg {
+    background-color: rgba($color: #000000, $alpha: 0.2) !important;
+  }
 
   .container {
     padding-top: 37px;

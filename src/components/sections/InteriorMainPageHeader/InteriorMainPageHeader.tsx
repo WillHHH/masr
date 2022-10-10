@@ -69,21 +69,19 @@ const InteriorMainPageHeader = ({
         routeLevel < 3 && styles.dark,
         className,
       )}
-      style={{
-        backgroundPosition: routeLevel < 2 && `center ${bgOffset}px`,
-        backgroundColor: routeLevel < 3 && `rgb(${headerContext?.headerColor})`,
-      }}
     >
-      <Container className={styles.container}>
-        <motion.div {...getMotionProps({ order: 1 })}>
-          {/* <Breadcrumbs
+      <div className={styles.bg}>
+        <Container className={styles.container}>
+          <motion.div {...getMotionProps({ order: 1 })}>
+            {/* <Breadcrumbs
             dark={routeLevel < 3}
             previousRoute={previousRoute}
             shellData={headerContext?.header?.story.content.routes}
           /> */}
-          <h1 className={styles.title}>{title}</h1>
-        </motion.div>
-      </Container>
+            <h1 className={styles.title}>{title}</h1>
+          </motion.div>
+        </Container>
+      </div>
     </div>
   );
 };
