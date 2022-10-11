@@ -3,7 +3,6 @@ import cx from "classnames";
 import styles from "./MapInfo.module.scss";
 import Reveal from "components/Layout/Reveal";
 import Container from "components/Layout/Container";
-import GoogleMapReact from "google-map-react";
 import moment from "moment";
 
 type ContactUsProps = {
@@ -12,14 +11,6 @@ type ContactUsProps = {
 };
 
 const MapInfo: FC<ContactUsProps> = ({ className }) => {
-  const defaultProps = {
-    center: {
-      lat: 10.99835602,
-      lng: 77.01502627,
-    },
-    zoom: 11,
-  };
-
   const hours = [
     {
       day: "Mon",
@@ -53,11 +44,19 @@ const MapInfo: FC<ContactUsProps> = ({ className }) => {
 
   return (
     <div className={styles.outer}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyA16d9FJFh__vK04jU1P64vnEpPc3jenec" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      ></GoogleMapReact>
+      <div className={styles.mapouter}>
+        <div className={styles.gmap_canvas}>
+          <iframe
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?q=30%20Doyle%20St%20Ste4,%20St%20James,%20NY%2011780&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameBorder="0"
+            scrolling="no"
+          ></iframe>
+          <a href="https://123movies-to.org"></a>
+          <br />
+          <a href="https://www.embedgooglemap.net"></a>
+        </div>
+      </div>
       <Container className={cx(styles.base, className)}>
         <Reveal className={styles.info}>
           <h3>GET IN TOUCH</h3>
