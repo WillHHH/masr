@@ -14,7 +14,6 @@ type ServicesSectionProps = {
   className?: string;
   cards?: ServiceCardProps[];
 };
-
 const ServicesSection: FC<ServicesSectionProps & SectionTitleProps> = ({
   className,
   cards,

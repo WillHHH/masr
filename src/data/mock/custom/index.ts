@@ -29,7 +29,7 @@ export const contactInfo = [
   },
   {
     type: "hour",
-    content: "<p><b>Mon-Fri: </b>11am - 5:30pm</p><p><b>Sat: </b>12am - 5pm</p>",
+    content: "<p><b>Mon-Fri: </b>11am - 5:30pm</p><p><b>Sat: </b>12pm - 5pm</p>",
   },
   {
     type: "phone",
