@@ -22,10 +22,13 @@
 .base {
 	position: absolute;
 	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	right: 100px;
 	width: 350px;
 	height: 450px;
-	top: 15%;
+	top: 12%;
 	border-radius: 10px;
 }
 
@@ -53,6 +56,11 @@
 		font-weight: 800;
 		margin-top: 0;
 	}
+
+	img {
+		width: 160px;
+		margin-top: 15px;
+	}
 }
 
 .hours {
@@ -64,12 +72,6 @@
 
 		span {
 			font-size: 16px;
-		}
-	}
-
-	.bold {
-		span {
-			font-weight: 600;
 		}
 	}
 }
