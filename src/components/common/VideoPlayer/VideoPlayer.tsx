@@ -18,7 +18,6 @@ const VideoPlayer = ({
   isYoutube,
   onClose,
 }: VideoPlayerProps) => {
-  console.log(videoId)
   const ifrmProps = {
     allowFullScreen: true,
     ...iframeProps,
