@@ -3,6 +3,7 @@ import cx from "classnames";
 import styles from "./MapInfo.module.scss";
 import Reveal from "components/Layout/Reveal";
 import Container from "components/Layout/Container";
+import { useRouter } from "next/router";
 
 type ContactUsProps = {
   className?: string;
@@ -10,6 +11,8 @@ type ContactUsProps = {
 };
 
 const MapInfo: FC<ContactUsProps> = ({ className }) => {
+  const { locale } = useRouter();
+
   const hours = [
     {
       day: "Mon-Fri",
@@ -42,7 +45,7 @@ const MapInfo: FC<ContactUsProps> = ({ className }) => {
       </div>
       <Container className={cx(styles.base, className)}>
         <Reveal className={styles.info}>
-          <h3>GET IN TOUCH</h3>
+          <h3>{locale === "zh" ? "联系我们" : "GET IN TOUCH"}</h3>
           <h2>
             <a href="tel:6315909196">631-590-9196</a>
           </h2>

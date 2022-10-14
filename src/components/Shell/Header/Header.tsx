@@ -76,6 +76,11 @@ const Header = ({ className, story, contentLocales }: HeaderProps) => {
           routeLevel > 1 ? `rgb(0, 0, 0)` : `rgba(0, 0, 0, ${bgFade})`,
       }}
     >
+      {/* <div className={styles.info}>
+        <Container>
+          <p>30 Doyle St #4, St James, NY 11780</p> <p>Tel: 631-590-9196</p>
+        </Container>
+      </div> */}
       <Container
         className={cx(styles.container, !isOpen && shrink && styles.smaller)}
       >

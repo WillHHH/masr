@@ -9,7 +9,10 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        {/* <script src="//code.tidio.co/vkumh4hdpsx3ovrnbky5z5oyfwvthcbd.js" async></script> */}
+        <script
+          src="//code.tidio.co/yw1rnbdc1hjamkdjpiwwr87p4irvlxyq.js"
+          async
+        ></script>{" "}
       </body>
     </Html>
   );
