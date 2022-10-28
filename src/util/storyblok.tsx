@@ -19,6 +19,7 @@ const InteriorMainPageHeaderBlok = dynamic(
 const ComingSoonBlok = dynamic(() => import("bloks/ComingSoon"));
 const ServicesSectionBlok = dynamic(() => import("bloks/ServicesSection"));
 const AboutUsBlok = dynamic(() => import("bloks/AboutUs"));
+const ReservationBlok = dynamic(() => import("bloks/Reservation"));
 
 function withDynamicBlok(DynamicComponent) {
   const Component: FC<{ blok: any }> = ({ blok }) => {
@@ -53,5 +54,6 @@ storyblokInit({
     coming_soon: withDynamicBlok(ComingSoonBlok),
     services_section: withDynamicBlok(ServicesSectionBlok),
     about_us: withDynamicBlok(AboutUsBlok),
+    reservation: withDynamicBlok(ReservationBlok),
   },
 });

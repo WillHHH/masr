@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.10.4",
+    "@formspree/react": "^2.4.0",
     "@lottiefiles/react-lottie-player": "^3.4.7",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.7",

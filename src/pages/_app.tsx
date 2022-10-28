@@ -1,6 +1,7 @@
 import { useEffect, createContext } from "react";
 import { NextIntlProvider } from "next-intl";
 import TagManager from "react-gtm-module";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import Shell from "components/Shell";
 import { useRouter } from "next/router";
@@ -35,33 +36,43 @@ function MyApp({ Component, pageProps }) {
     });
   };
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#b10707",
+      },
+    },
+  });
+
   return (
-    <NextIntlProvider messages={pageProps.localizedStrings}>
-      <ConfigContext.Provider
-        value={{
-          header: pageProps?.header,
-          footer: pageProps?.footer,
-          headerColor: "56, 21, 81",
-        }}
-      >
-        <SwitchLocaleContext.Provider value={switchLocale}>
-          {isFallback ? null : (
-            <>
-              {pageProps?.story && (
-                <Meta story={pageProps.story} router={router} />
-              )}
-              <Shell
-                header={pageProps?.header}
-                footer={pageProps?.footer}
-                contentLocales={pageProps.contentLocales}
-              >
-                <Component {...pageProps} />
-              </Shell>
-            </>
-          )}
-        </SwitchLocaleContext.Provider>
-      </ConfigContext.Provider>
-    </NextIntlProvider>
+    <ThemeProvider theme={theme}>
+      <NextIntlProvider messages={pageProps.localizedStrings}>
+        <ConfigContext.Provider
+          value={{
+            header: pageProps?.header,
+            footer: pageProps?.footer,
+            headerColor: "56, 21, 81",
+          }}
+        >
+          <SwitchLocaleContext.Provider value={switchLocale}>
+            {isFallback ? null : (
+              <>
+                {pageProps?.story && (
+                  <Meta story={pageProps.story} router={router} />
+                )}
+                <Shell
+                  header={pageProps?.header}
+                  footer={pageProps?.footer}
+                  contentLocales={pageProps.contentLocales}
+                >
+                  <Component {...pageProps} />
+                </Shell>
+              </>
+            )}
+          </SwitchLocaleContext.Provider>
+        </ConfigContext.Provider>
+      </NextIntlProvider>
+    </ThemeProvider>
   );
 }
 
